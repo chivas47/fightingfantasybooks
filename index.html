@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Adventure Book</title>
+    <style>
+        .page {
+            display: none;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div id="sectionIntro" class="page active">
+    <h2>HOW TO FIGHT CREATURES OF THE UNDERWORLD</h2>
+    <p>If it is your first gamebook, and you are not familiar with the rules of Fighting Fantasy, turn to <a href="#" onclick="goToSection('401')">401</a> to learn about the game mechanics.</p>
+    <p>At any moment, you can open your Adventure Sheet by pressing B.</p>
+    <p>[Introduction Text]</p>
+    <a href="#" onclick="goToSection('1')">Turn to 1</a>
+</div>
+
+<div id="section1" class="page">
+    <p>At last your two-day hike is over. You unsheathe your sword, lay it on the ground and sigh with relief as you lower yourself down on to the mossy rocks to sit for a moment's rest. [Text continues...]</p>
+    <p>Will you turn west (<a href="#" onclick="goToSection('71')">turn to 71</a>) or east (<a href="#" onclick="goToSection('278')">turn to 278</a>)?</p>
+</div>
+
+<div id="section2" class="page">
+    <p>Test your Luck. If you are Lucky, you escape without attracting the Ogre's attention. [Text continues...]</p>
+    <p>If you were Lucky, you creep down the corridor back to the crossroads. <a href="#" onclick="goToSection('269')">Turn to 269</a>.</p>
+</div>
+
+<!-- More sections go here -->
+
+<script>
+    function goToSection(sectionId) {
+        var sections = document.querySelectorAll('.page');
+        for(var i = 0; i < sections.length; i++) {
+            sections[i].classList.remove('active');
+        }
+        document.getElementById('section' + sectionId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
